@@ -1,0 +1,5 @@
+packages/*/dist/
+.prettierignore
+.vscode
+node_modules
+packages/*/node_modules

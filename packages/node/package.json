@@ -1,0 +1,19 @@
+{
+    "name": "@zy-tools/node",
+    "version": "1.0.0",
+    "author": "zygg",
+    "license": "MIT",
+    "keywords": [],
+    "description": "",
+    "main": "dist/node.cjs.js",
+    "module": "dist/node.esm.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "buildOptions": {
+        "formats": [
+            "es",
+            "cjs"
+        ]
+    }
+}

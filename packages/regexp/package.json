@@ -1,0 +1,21 @@
+{
+    "name": "@zy-tools/regexp",
+    "version": "1.0.0",
+    "author": "",
+    "license": "MIT",
+    "description": "",
+    "keywords": [],
+    "main": "dist/regexp.cjs.js",
+    "module": "dist/regexp.esm.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "buildOptions": {
+        "name": "regexp",
+        "formats": [
+            "es",
+            "cjs",
+            "iife"
+        ]
+    }
+}
