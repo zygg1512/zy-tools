@@ -1,7 +1,7 @@
 import ts from '@rollup/plugin-typescript' // 解析 ts
 import resolve from '@rollup/plugin-node-resolve' // 允许加载第三方模块
 import commonjs from '@rollup/plugin-commonjs' // 将它们转换为ES6版本
-import { babel } from '@rollup/plugin-babel'
+import babel from '@rollup/plugin-babel'
 import path from 'path'
 // 获取 packages 路径
 const packagesDir = path.resolve(__dirname, 'packages')
@@ -36,14 +36,14 @@ function createConfig(format) {
     output.name = buildOptions.name
     output.sourcemap = true
     return {
-        input: path.resolve('src/index.ts'),
+        input: resolveDirPath('src/index.ts'),
         output,
         plugins: [
+            resolve(),
+            commonjs(),
             ts({
                 tsconfig: path.resolve(__dirname, 'tsconfig.json')
             }),
-            resolve(),
-            commonjs(),
             babel({
                 exclude: 'node_modules/**',
                 babelHelpers: 'runtime'

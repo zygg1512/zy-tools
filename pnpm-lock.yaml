@@ -7,6 +7,7 @@ importers:
       '@babel/core': ^7.16.5
       '@babel/plugin-transform-runtime': ^7.16.5
       '@babel/preset-env': ^7.16.5
+      '@babel/preset-typescript': ^7.16.5
       '@babel/runtime-corejs3': ^7.16.5
       '@rollup/plugin-babel': ^5.3.0
       '@rollup/plugin-commonjs': ^21.0.1
@@ -29,6 +30,7 @@ importers:
       '@babel/core': 7.16.5
       '@babel/plugin-transform-runtime': 7.16.5_@babel+core@7.16.5
       '@babel/preset-env': 7.16.5_@babel+core@7.16.5
+      '@babel/preset-typescript': 7.16.5_@babel+core@7.16.5
       '@rollup/plugin-babel': 5.3.0_@babel+core@7.16.5+rollup@2.61.1
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.61.1
       '@rollup/plugin-node-resolve': 13.1.1_rollup@2.61.1
@@ -672,6 +674,16 @@ packages:
       '@babel/helper-plugin-utils': 7.16.5
     dev: true
 
+  /@babel/plugin-syntax-typescript/7.16.5_@babel+core@7.16.5:
+    resolution: {integrity: sha512-/d4//lZ1Vqb4mZ5xTep3dDK888j7BGM/iKqBmndBaoYAFPlPKrGU608VVBz5JeyAb6YQDjRu1UKqj86UhwWVgw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.16.5
+      '@babel/helper-plugin-utils': 7.16.5
+    dev: true
+
   /@babel/plugin-transform-arrow-functions/7.16.5_@babel+core@7.16.5:
     resolution: {integrity: sha512-8bTHiiZyMOyfZFULjsCnYOWG059FVMes0iljEHSfARhNgFfpsqE92OrCffv3veSw9rwMkYcFe9bj0ZoXU2IGtQ==}
     engines: {node: '>=6.9.0'}
@@ -1027,6 +1039,20 @@ packages:
       '@babel/helper-plugin-utils': 7.16.5
     dev: true
 
+  /@babel/plugin-transform-typescript/7.16.1_@babel+core@7.16.5:
+    resolution: {integrity: sha1-zAZwsoIrAzg1W8Gz0iRqQrgWZAk=}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.16.5
+      '@babel/helper-create-class-features-plugin': 7.16.5_@babel+core@7.16.5
+      '@babel/helper-plugin-utils': 7.16.5
+      '@babel/plugin-syntax-typescript': 7.16.5_@babel+core@7.16.5
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@babel/plugin-transform-unicode-escapes/7.16.5_@babel+core@7.16.5:
     resolution: {integrity: sha512-shiCBHTIIChGLdyojsKQjoAyB8MBwat25lKM7MJjbe1hE0bgIppD+LX9afr41lLHOhqceqeWl4FkLp+Bgn9o1Q==}
     engines: {node: '>=6.9.0'}
@@ -1144,6 +1170,20 @@ packages:
       '@babel/plugin-transform-dotall-regex': 7.16.5_@babel+core@7.16.5
       '@babel/types': 7.16.0
       esutils: 2.0.3
+    dev: true
+
+  /@babel/preset-typescript/7.16.5_@babel+core@7.16.5:
+    resolution: {integrity: sha512-lmAWRoJ9iOSvs3DqOndQpj8XqXkzaiQs50VG/zESiI9D3eoZhGriU675xNCr0UwvsuXrhMAGvyk1w+EVWF3u8Q==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.16.5
+      '@babel/helper-plugin-utils': 7.16.5
+      '@babel/helper-validator-option': 7.14.5
+      '@babel/plugin-transform-typescript': 7.16.1_@babel+core@7.16.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@babel/runtime-corejs3/7.16.5:
