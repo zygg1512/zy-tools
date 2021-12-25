@@ -1,7 +1,5 @@
-module.exports = {
-    extends: [
-      "@commitlint/config-conventional"
-    ],
+export default {
+    extends: ['@commitlint/config-conventional'],
     rules: {
         /**
          * build：编译相关的修改，例如发布版本、对项目构建或者依赖的改动
@@ -11,13 +9,10 @@ module.exports = {
          * docs：文档修改
          * refactor：代码重构
          */
-      'type-enum': [2, 'always', [
-        'feature', 'fix', 'perf','build', 'refactor', 'docs'
-       ]],
-      'type-empty': [2, 'always'],
-      'subject-empty': [2, 'always'],
-      'subject-full-stop': [0, 'never'],
-      'header-max-length': [0, 'always', 72]
+        'type-enum': [2, 'always', ['feature', 'fix', 'perf', 'build', 'refactor', 'docs']],
+        'type-empty': [2, 'always'],
+        'subject-empty': [2, 'always'],
+        'subject-full-stop': [0, 'never'],
+        'header-max-length': [0, 'always', 72]
     }
-  };
-  
+}

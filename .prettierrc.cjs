@@ -16,20 +16,5 @@ module.exports = {
     // 大括号内的首尾需要空格
     bracketSpacing: true,
     // 箭头函数，只有一个参数的时候，也需要括号
-    arrowParens: 'always',
-    overrides: [
-        {
-            files: ['*.json5'],
-            options: {
-                singleQuote: false,
-                quoteProps: 'preserve',
-            },
-        },
-        {
-            files: ['*.yml'],
-            options: {
-                singleQuote: false,
-            },
-        },
-    ]
-};
+    arrowParens: 'always'
+}

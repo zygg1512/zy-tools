@@ -24,7 +24,6 @@
             "pnpm run lint"
         ]
     },
-    "packageManager": "pnpm",
     "devDependencies": {
         "@babel/core": "^7.16.5",
         "@babel/plugin-external-helpers": "^7.16.5",

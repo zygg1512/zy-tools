@@ -1,5 +1,7 @@
 packages/*/dist/
 .prettierignore
 .vscode
+.husky
 node_modules
-packages/*/node_modules
+
+commitlint.config.js
