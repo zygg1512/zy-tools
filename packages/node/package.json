@@ -4,6 +4,7 @@
     "author": "zygg",
     "license": "MIT",
     "keywords": [],
+    "sideEffects": false,
     "description": "",
     "main": "dist/node.cjs.js",
     "module": "dist/node.esm.js",

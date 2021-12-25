@@ -4,6 +4,7 @@
     "author": "",
     "license": "MIT",
     "description": "",
+    "sideEffects": false,
     "keywords": [],
     "main": "dist/regexp.cjs.js",
     "module": "dist/regexp.esm.js",
