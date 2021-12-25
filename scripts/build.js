@@ -1,5 +1,6 @@
-import { statSync, readdirSync } from 'fs'
-import { execa } from 'execa'
+const fs = require('fs')
+const { statSync, readdirSync } = fs
+const execa = require('execa')
 
 const dirs = readdirSync('packages').filter((_d) => statSync(`packages/${_d}`).isDirectory())
 // 并行打包所有文件夹

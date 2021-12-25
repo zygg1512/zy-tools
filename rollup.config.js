@@ -1,7 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve' // 允许加载第三方模块
 import commonjs from '@rollup/plugin-commonjs' // 将它们转换为ES6版本
 import { babel } from '@rollup/plugin-babel'
-import path from 'path'
+const path = require('path')
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 // 获取 packages 路径
 const packagesDir = path.resolve(__dirname, 'packages')
