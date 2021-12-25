@@ -2,10 +2,11 @@
     "name": "zy-tools",
     "private": true,
     "scripts": {
-        "preinstall": "node scripts/preinstall & husky install",
+        "preinstall": "node scripts/preinstall",
         "build": "node scripts/build.js",
         "build:types": "tsc",
-        "lint": "eslint --ext .ts"
+        "lint": "eslint --ext .ts",
+        "prepare": "husky install"
     },
     "engines": {
         "node": ">=12",
