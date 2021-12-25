@@ -5,7 +5,7 @@
     "scripts": {
         "build": "node scripts/build.js",
         "build:types": "tsc",
-        "lint": "eslint --ext .ts,.js",
+        "lint": "eslint --ext .ts",
         "lint-staged": "lint-staged",
         "preinstall": "husky install"
     },
