@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 const msgPath = process.env.GIT_PARAMS
-console.log('msgPath', msgPath)
+console.log('这里这里', msgPath)
 const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
 
 const releaseRE = /^v\d/
