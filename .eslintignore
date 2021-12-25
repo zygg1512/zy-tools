@@ -1,5 +1,4 @@
 packages/*/dist/
-.prettierignore
 *.yaml
 tsconfig.json
 package.json
@@ -9,9 +8,3 @@ rollup.config.js
 node_modules
 packages/*/node_modules
 packages/*/package.json
-
-commitlint.config.js
-.browserslistrc
-.prettierrc.js
-.eslintrc.js
-babel.config.json
