@@ -4,7 +4,11 @@ const inquirer = require('inquirer')
 
 const readDir = path.resolve(process.cwd(), 'packages')
 const dirs = fs.readdirSync(readDir)
-const versionType = ['大版本号', '小版本号', '补丁版本号']
+const versionType = [
+    'major（大版本）：破坏模块对向后的兼容性',
+    'minor（小版本）：增加新功能，不影响现有功能',
+    'patch（补丁版本）：小变动，比如修复bug等'
+]
 
 const updatePackages = {
     type: 'checkbox',
@@ -36,6 +40,10 @@ const updateVersionType = {
     when({ packageNames }) {
         // 当 packageNames 有值时才会提问当前问题
         return packageNames.length
+    },
+    filter(val) {
+        const type = ['major', 'minor', 'patch']
+        return type[val]
     }
 }
 const questionHandle = async () => inquirer.prompt([updatePackages, updateVersionType])
