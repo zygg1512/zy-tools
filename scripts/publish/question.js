@@ -17,7 +17,10 @@ const updatePackages = {
         return '请选择要更新的包'
     },
     filter(packges) {
-        return packges.map((pck) => path.resolve(readDir, pck))
+        return packges.map((pck) => ({
+            dir: path.resolve(readDir, pck),
+            name: pck
+        }))
     }
 }
 const updateVersionType = {
