@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/node",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "wooty",
     "license": "MIT",
     "keywords": [],
@@ -8,8 +8,17 @@
     "description": "",
     "main": "dist/node.cjs.js",
     "module": "dist/node.esm.js",
+    "files": [
+        "dist",
+        "types"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zygg1512/zy-tools.git",
+        "directory": "packages/node"
     },
     "buildOptions": {
         "formats": [

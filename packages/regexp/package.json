@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/regexp",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "wooty",
     "license": "MIT",
     "description": "",
@@ -9,8 +9,14 @@
     "main": "dist/regexp.cjs.js",
     "module": "dist/regexp.esm.js",
     "files": [
-        "dist"
+        "dist",
+        "types"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zygg1512/zy-tools.git",
+        "directory": "packages/regexp"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
