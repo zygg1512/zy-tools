@@ -8,6 +8,7 @@
     "keywords": [],
     "main": "dist/regexp.cjs.js",
     "module": "dist/regexp.esm.js",
+    "types": "dist/index.d.ts",
     "files": [
         "dist",
         "types"

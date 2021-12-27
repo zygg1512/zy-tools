@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve' // 允许加载第三方模块
 import commonjs from '@rollup/plugin-commonjs' // 将它们转换为ES6版本
 import { babel } from '@rollup/plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 const path = require('path')
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 // 获取 packages 路径
@@ -8,7 +9,7 @@ const packagesDir = path.resolve(__dirname, 'packages')
 // 获取对应要打包的路径
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 
-const resolveDirPath = (p) => path.resolve(packageDir, p)
+const resolveDirPath = (p = '/') => path.resolve(packageDir, p)
 
 // 获取 package.json 内容
 const pck = require(resolveDirPath('package.json'))
@@ -41,6 +42,12 @@ function createConfig(format) {
         plugins: [
             resolve(),
             commonjs(),
+            typescript({
+                tsconfig: path.resolve(process.cwd(), './tsconfig.json'),
+                declaration: true,
+                rootDir: `${packageDir}/src`,
+                declarationDir: `.`
+            }),
             babel({
                 babelHelpers: 'runtime',
                 exclude: 'node_modules/**',
