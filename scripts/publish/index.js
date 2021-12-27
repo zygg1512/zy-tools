@@ -1,15 +1,20 @@
 const execa = require('execa')
-const { questionHandle } = require('./question')
+const { askQuestion } = require('./ask')
 const { runparallel } = require('../run')
+const { gitPush } = require('../git-push')
 
 async function runPublish() {
-    const { packageNames, versionType } = await questionHandle()
+    const { packageNames, versionType } = await askQuestion()
     // 打包代码
     await runparallel(packageNames.map((_p) => _p.name))
     // 并行发布
+    const _res = []
     for (const pck of packageNames) {
-        build(pck.dir, versionType)
+        _res.push(build(pck.dir, versionType))
     }
+    await Promise.all(_res)
+    // 推送到远端
+    gitPush(`publish: publish packages of ${packageNames.map((pck) => pck.name).join('、')}`)
 }
 
 async function build(dir, versionType) {
@@ -24,7 +29,3 @@ async function build(dir, versionType) {
 }
 
 runPublish()
-
-module.exports = {
-    runPublish
-}

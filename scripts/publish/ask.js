@@ -46,8 +46,8 @@ const updateVersionType = {
         return type[val]
     }
 }
-const questionHandle = async () => inquirer.prompt([updatePackages, updateVersionType])
+const askQuestion = async () => inquirer.prompt([updatePackages, updateVersionType])
 
 module.exports = {
-    questionHandle
+    askQuestion
 }
