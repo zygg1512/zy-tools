@@ -1,7 +1,7 @@
 {
     "name": "@zy-tools/node",
-    "version": "1.0.0111",
-    "author": "zygg",
+    "version": "0.0.1",
+    "author": "wooty",
     "license": "MIT",
     "keywords": [],
     "sideEffects": false,

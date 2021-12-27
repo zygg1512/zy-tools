@@ -6,10 +6,14 @@ const execa = require('execa')
 async function runCommond() {
     // 获取用户选择内容
     const { packageNames, versionType } = await questionHandle()
-    packageNames.forEach((_p) => {
+    return packageNames.map((_p) => {
         const version = getPackage(_p).version
         const newVersion = setVersion(version, versionType)
-        updateVersion(_p, newVersion)
+        const errReset = updateVersion(_p, newVersion)
+        return {
+            dir: _p,
+            errReset
+        }
     })
 }
 
@@ -20,7 +24,16 @@ function getPackage(dir) {
 
 function updateVersion(dir, newVersion) {
     const context = getPackage(dir)
+    const oldContext = JSON.parse(JSON.stringify(context))
+    const errReset = () => {
+        writePackage(dir, oldContext)
+    }
     context.version = newVersion
+    writePackage(dir, context)
+    return errReset
+}
+
+function writePackage(dir, context) {
     const pckPath = path.resolve(dir, 'package.json')
     fs.writeFileSync(pckPath, JSON.stringify(context, '', '\t'), {
         flag: 'w'
@@ -29,9 +42,9 @@ function updateVersion(dir, newVersion) {
 
 function setVersion(oldVersion, updateVersionType) {
     const versions = oldVersion.split('.')
-    const bigVersion = versions[0]
-    const smallVersion = versions[1]
-    const patchVersion = versions[2]
+    const bigVersion = +versions[0]
+    const smallVersion = +versions[1]
+    const patchVersion = +versions[2]
     let newVersion = ''
     switch (updateVersionType) {
         case 0:
@@ -48,9 +61,19 @@ function setVersion(oldVersion, updateVersionType) {
 }
 
 async function runPublish() {
-    await runCommond()
-    await execa('pnpm', ['publish', '--registry=https://registry.npmjs.org/'], {
-        stdio: 'inherit' // 子进程的输出需要在父进程中打印
+    const packageNames = await runCommond()
+    // 并行发布
+    for (const pck of packageNames) {
+        build(pck)
+    }
+}
+
+async function build({ dir, errReset }) {
+    await execa('npm', ['publish', '--access', 'public'], {
+        stdio: 'inherit', // 子进程的输出需要在父进程中打印
+        cwd: dir
+    }).catch(() => {
+        errReset()
     })
 }
 
