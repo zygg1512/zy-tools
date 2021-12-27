@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/regexp",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "author": "wooty",
     "license": "MIT",
     "description": "",
@@ -17,9 +17,6 @@
         "type": "git",
         "url": "https://github.com/zygg1512/zy-tools.git",
         "directory": "packages/regexp"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "buildOptions": {
         "name": "regexp",
