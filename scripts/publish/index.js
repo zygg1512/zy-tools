@@ -17,7 +17,7 @@ async function runPublish() {
     }
     await Promise.all(_res)
     clear()
-    successLog('publish success')
+    successLog('发布成功')
     // 推送到远端
     gitPush(`publish: publish packages of ${packageNames.map((pck) => pck.name).join('、')}`)
 }

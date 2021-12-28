@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve' // 允许加载第三方模块
 import commonjs from '@rollup/plugin-commonjs' // 将它们转换为ES6版本
 import { babel } from '@rollup/plugin-babel'
 import typescript from '@rollup/plugin-typescript'
+import { terser } from 'rollup-plugin-terser'
 const path = require('path')
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 // 获取 packages 路径
@@ -39,6 +40,7 @@ function createConfig(format) {
     return {
         input: resolveDirPath('src/index.ts'),
         output,
+        external: [/@babel\/runtime/], // 将@babel/runtime-corejs3改为引入的方式
         plugins: [
             resolve(),
             commonjs(),
@@ -53,7 +55,8 @@ function createConfig(format) {
                 exclude: 'node_modules/**',
                 // babel 默认不支持 ts 需要手动添加
                 extensions: [...DEFAULT_EXTENSIONS, '.ts']
-            })
+            }),
+            terser()
         ]
     }
 }
