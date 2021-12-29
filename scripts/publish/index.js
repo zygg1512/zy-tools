@@ -23,11 +23,11 @@ async function runPublish() {
 }
 
 async function build(dir, versionType) {
-    await execa('npm', ['version', versionType], {
+    await execa('pnpm', ['version', versionType], {
         stdio: 'inherit', // 子进程的输出需要在父进程中打印
         cwd: dir
     })
-    await execa('npm', ['publish', '--access', 'public', '--registry=https://registry.npmjs.org'], {
+    await execa('pnpm', ['publish', '--access', 'public', '--registry=https://registry.npmjs.org', '--no-git-checks'], {
         stdio: 'inherit', // 子进程的输出需要在父进程中打印
         cwd: dir
     })

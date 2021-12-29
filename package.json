@@ -55,5 +55,10 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "^7.16.5"
+    },
+    "pnpm": {
+        "overrides": {
+            "@babel/runtime-corejs3": "^7.16.5"
+        }
     }
 }

@@ -1,5 +1,8 @@
 lockfileVersion: 5.3
 
+overrides:
+    '@babel/runtime-corejs3': ^7.16.5
+
 importers:
     .:
         specifiers:
