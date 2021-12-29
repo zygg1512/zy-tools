@@ -1,0 +1,32 @@
+{
+    "name": "@zy-tools/utils",
+    "version": "1.0.0",
+    "author": "wooty",
+    "license": "MIT",
+    "description": "",
+    "sideEffects": false,
+    "keywords": [],
+    "main": "dist/utils.cjs.js",
+    "module": "dist/utils.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "types"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zygg1512/zy-tools.git",
+        "directory": "packages/utils"
+    },
+    "buildOptions": {
+        "name": "utils",
+        "formats": [
+            "es",
+            "cjs",
+            "iife"
+        ]
+    },
+    "peerDependencies": {
+        "@babel/runtime-corejs3": "^7.16.5"
+    }
+}

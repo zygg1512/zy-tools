@@ -23,6 +23,13 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
         '@typescript-eslint/no-inferrable-types': 'off',
-        'no-process-exit': 'off'
+        '@typescript-eslint/no-explicit-any': 'off',
+        'no-process-exit': 'off',
+        'node/no-missing-import': [
+            'error',
+            {
+                tryExtensions: ['.ts', '.js', '.jsx', '.tsx', '.d.ts']
+            }
+        ]
     }
 }

@@ -1,13 +1,5 @@
-export const fn = () => 123
+/*eslint no-control-regex: "off"*/
+const chinese = /[^\x00-\xff]/g
+const html = /<[^>]+>/g
 
-interface Test {
-    a: string
-    b: number
-}
-
-export const test: Test = {
-    a: '1',
-    b: 2
-}
-// export const map = new Map()
-export const p = new Promise((_r) => _r(123))
+export { chinese, html }
