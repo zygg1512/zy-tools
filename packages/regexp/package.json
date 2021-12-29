@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/regexp",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "author": "wooty",
     "license": "MIT",
     "description": "",
@@ -25,5 +25,8 @@
             "cjs",
             "iife"
         ]
+    },
+    "peerDependencies": {
+        "@babel/runtime-corejs3": "^7.16.5"
     }
 }

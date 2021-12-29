@@ -61,7 +61,10 @@ importers:
             typescript: 4.5.4
 
     packages/node:
-        specifiers: {}
+        specifiers:
+            '@zy-tools/regexp': workspace:^*
+        dependencies:
+            '@zy-tools/regexp': link:../regexp
 
     packages/regexp:
         specifiers: {}

@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/node",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "author": "wooty",
     "license": "MIT",
     "keywords": [],
@@ -23,5 +23,11 @@
             "es",
             "cjs"
         ]
+    },
+    "peerDependencies": {
+        "@babel/runtime-corejs3": "^7.16.5"
+    },
+    "dependencies": {
+        "@zy-tools/regexp": "workspace:^*"
     }
 }
