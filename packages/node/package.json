@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/node",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "author": "wooty",
     "license": "MIT",
     "keywords": [],
@@ -25,6 +25,6 @@
         ]
     },
     "dependencies": {
-        "@zy-tools/regexp": "workspace:^*"
+        "@zy-tools/regexp": "workspace:^"
     }
 }
