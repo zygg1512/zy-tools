@@ -7,7 +7,8 @@ const dirs = fs.readdirSync(readDir)
 const versionType = [
     'major（大版本）：破坏模块对向后的兼容性',
     'minor（小版本）：增加新功能，不影响现有功能',
-    'patch（补丁版本）：小变动，比如修复bug等'
+    'patch（补丁版本）：小变动，比如修复bug等',
+    '现有版本'
 ]
 
 const updatePackages = {
@@ -42,7 +43,7 @@ const updateVersionType = {
         return packageNames.length
     },
     filter(val) {
-        const type = ['major', 'minor', 'patch']
+        const type = ['major', 'minor', 'patch', '']
         return type[val]
     }
 }

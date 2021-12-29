@@ -65,7 +65,7 @@ importers:
 
     packages/node:
         specifiers:
-            '@zy-tools/regexp': workspace:^*
+            '@zy-tools/regexp': workspace:^
         dependencies:
             '@zy-tools/regexp': link:../regexp
 
