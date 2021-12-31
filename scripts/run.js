@@ -2,6 +2,9 @@ const execa = require('execa')
 const { infoLog, errorLog, successLog } = require('./log')
 const { clear } = require('./shell')
 async function build(target) {
+    await execa('npx', ['eslint', `packages/${target}/src/**`], {
+        stdio: 'inherit' // 子进程的输出需要在父进程中打印
+    })
     await execa('rm', ['-rf', `packages/${target}/dist`])
     await execa('rollup', ['-c', '--environment', `TARGET:${target}`], {
         stdio: 'inherit' // 子进程的输出需要在父进程中打印

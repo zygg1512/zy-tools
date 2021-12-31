@@ -8,7 +8,7 @@ const { clear } = require('../shell')
 async function runPublish() {
     const { packageNames, versionType } = await askQuestion()
     // 打包代码
-    await runparallel(packageNames.map((_p) => _p.name))
+    await runparallel(packageNames.map(_p => _p.name))
     // 并行发布
     infoLog('并行发布')
     const _res = []
@@ -19,7 +19,7 @@ async function runPublish() {
     clear()
     successLog('发布成功')
     // 推送到远端
-    gitPush(`publish: publish packages of ${packageNames.map((pck) => pck.name).join('、')}`)
+    gitPush(`publish: publish packages of ${packageNames.map(pck => pck.name).join('、')}`)
 }
 
 async function build(dir, versionType) {
@@ -29,21 +29,14 @@ async function build(dir, versionType) {
             cwd: dir
         })
     }
-    await execa(
-        'pnpm',
-        [
-            'publish',
-            '--access',
-            'public',
-            '--registry=https://registry.npmjs.org',
-            '--no-git-checks',
-            versionType ? '' : '--force'
-        ],
-        {
-            stdio: 'inherit', // 子进程的输出需要在父进程中打印
-            cwd: dir
-        }
-    )
+    const pbulishCommand = ['publish', '--access', 'public', '--registry=https://registry.npmjs.org', '--no-git-checks']
+
+    if (versionType) pbulishCommand.push('--force')
+
+    await execa('pnpm', pbulishCommand, {
+        stdio: 'inherit', // 子进程的输出需要在父进程中打印
+        cwd: dir
+    })
 }
 
 runPublish()

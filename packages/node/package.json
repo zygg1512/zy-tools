@@ -1,6 +1,6 @@
 {
     "name": "@zy-tools/node",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "wooty",
     "license": "MIT",
     "keywords": [],
@@ -10,7 +10,7 @@
     "module": "dist/node.esm.js",
     "files": [
         "dist",
-        "types"
+        "src"
     ],
     "types": "dist/index.d.ts",
     "repository": {

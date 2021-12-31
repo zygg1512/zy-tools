@@ -17,6 +17,7 @@ module.exports = {
     },
     plugins: ['@typescript-eslint'],
     rules: {
+        'no-process-exit': 'off',
         'node/no-unsupported-features/es-syntax': 'off',
         'node/no-unpublished-import': 'off',
         'node/no-unpublished-require': 'off',
@@ -24,7 +25,6 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['error'],
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
-        'no-process-exit': 'off',
         'node/no-missing-import': [
             'error',
             {
