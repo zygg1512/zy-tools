@@ -1,23 +1,25 @@
-type DebounceFunction = (func: (...args: any) => any, delay?: number) => (...args: any[]) => void
-type DebounceFunctionIIFE = (
-    func: (...args: any) => any,
-    delay?: number,
-    immediate?: boolean
-) => (...args: any[]) => void
+// 当高频事件停止后才触发一次函数，一直触发高频事件则防抖永远不会执行
 
-const debounce: DebounceFunction = (func, delay = 16) => {
-    let timer: any = null
-    return function (this: any, ...args: any[]) {
-        clearTimeout(timer)
+/**
+ * 方案一 只执行最后一次
+ */
+function debounce(fn: (...args: any[]) => void, delay: number = 16) {
+    let timer: NodeJS.Timeout | null = null
+    return function (...args: any[]) {
+        if (timer) clearTimeout(timer)
         timer = setTimeout(() => {
-            func.apply(this, args)
+            // this 指向调用返回函数的对象
+            fn.apply(this, args)
         }, delay)
     }
 }
 
-const debounceIIFE: DebounceFunctionIIFE = (func, delay = 16, immediate) => {
-    let timer: any = null
-    return function (this: any, ...args: any[]) {
+/**
+ * 方案二 选择是否立即执行函数
+ */
+function debounceIIFE(fn: (...args: any[]) => void, delay: number = 16, immediate: boolean = false) {
+    let timer: NodeJS.Timeout | null = null
+    return function (...args: any[]) {
         if (timer) clearTimeout(timer)
         if (immediate) {
             const doNow = !timer
@@ -25,13 +27,13 @@ const debounceIIFE: DebounceFunctionIIFE = (func, delay = 16, immediate) => {
                 timer = null
             }, delay)
             if (doNow) {
-                func.apply(this, args)
+                fn.apply(this, args)
             }
-        } else {
-            timer = setTimeout(() => {
-                func.apply(this, args)
-            }, delay)
+            return
         }
+        timer = setTimeout(() => {
+            fn.apply(this, args)
+        }, delay)
     }
 }
 

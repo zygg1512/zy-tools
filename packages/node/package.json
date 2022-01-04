@@ -26,8 +26,5 @@
     },
     "dependencies": {
         "@zy-tools/regexp": "workspace:^"
-    },
-    "peerDependencies": {
-        "@babel/runtime-corejs3": "^7.16.5"
     }
 }

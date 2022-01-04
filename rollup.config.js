@@ -40,7 +40,7 @@ function createConfig(format) {
     return {
         input: resolveDirPath('src/index.ts'),
         output,
-        external: [/@babel\/runtime/], // 将@babel/runtime-corejs3改为引入的方式
+        // external: [/@babel\/runtime/], // 将@babel/runtime-corejs3改为引入的方式
         plugins: [
             resolve(),
             commonjs(),
